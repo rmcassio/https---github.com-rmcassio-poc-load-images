@@ -170,11 +170,11 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
               TextButton(
                   onPressed: () async {
                     Navigator.of(context).pop();
-                    final image = await ImagePickerWeb.getImageAsWidget();
+                    final image = await ImagePickerWeb.getImageAsBytes();
 
                     if (image != null) {
                       setState(() {
-                        _photos.add(image);
+                        _photos.add(Image.memory(image));
                         _pageStatus = PageStatus.loaded;
                       });
                     } else {
